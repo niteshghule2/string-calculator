@@ -1,6 +1,8 @@
 const add = (numbers) => {
   if (!numbers) return 0;
-  return parseInt(numbers);
+  return numbers
+    .split(",")
+    .reduce((sum, number) => (sum += parseInt(number)), 0);
 };
 
 export { add };
