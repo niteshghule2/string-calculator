@@ -15,3 +15,6 @@ test("add 1\n2,3, return 6", () => {
 test("Support custom delimiter - return 3 for //;\n1;2 input", () => {
   expect(add("//;\n1;2")).toBe(3);
 });
+test("Throw an error for negative number", () => {
+  expect(add("1,-1")).toThrow("negative numbers not allowed -1");
+});

@@ -29,4 +29,10 @@ describe("String Calculator component", () => {
     renderInputAndSubmit("//$\n2$5");
     expect(screen.getByTestId("result")).toHaveTextContent("7");
   });
+  it("Throw an exception on negative number", () => {
+    renderInputAndSubmit("-1");
+    expect(screen.getByTestId("error")).toHaveTextContent(
+      "negative numbers not allowed -1"
+    );
+  });
 });
