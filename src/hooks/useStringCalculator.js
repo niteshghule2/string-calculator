@@ -1,8 +1,12 @@
 const add = (numbers) => {
   if (!numbers) return 0;
-  numbers = numbers.replace(/\\n/g, ",").replace(/\n/g, ",");
+  let delimeter = numbers.startsWith("//") ? numbers.charAt(2) : ",";
+  numbers = numbers
+    .replace(/\/\/.\n/, "")
+    .replace(/\\n/g, delimeter)
+    .replace(/\n/g, delimeter);
   return numbers
-    .split(",")
+    .split(delimeter)
     .reduce((sum, number) => (sum += parseInt(number)), 0);
 };
 
