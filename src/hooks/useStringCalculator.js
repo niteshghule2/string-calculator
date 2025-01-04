@@ -2,7 +2,7 @@ const add = (numbers) => {
   if (!numbers) {
     return 0;
   }
-  let delimiter = /,|\n/;
+  let delimiter = /,|\n|\\n/;
   if (numbers.startsWith("//")) {
     delimiter = getCustomDelimiters(numbers);
     numbers = numbers.replace(/\/\/.*?(?:\n|\\n)/, "");

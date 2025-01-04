@@ -64,6 +64,14 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
+### `npm run deploy`
+
+Builds the React app and deploys it to GitHub Pages. The deployed app is accessible through the URL specified in the homepage field of the package.json file.
+
+### Deployed on Github
+
+[String Calculator](https://niteshghule2.github.io/string-calculator/)
+
 #### Developed by
 
 [Nitesh Ghule](https://www.linkedin.com/in/nitesh-ghule/)
