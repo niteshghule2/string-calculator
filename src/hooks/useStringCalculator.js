@@ -11,7 +11,10 @@ const add = (numbers) => {
     throw new Error(
       "negative numbers not allowed " + negativeNumberList.join(", ")
     );
-  return numberList.reduce((sum, number) => (sum += parseInt(number)), 0);
+  return numberList.reduce((sum, number) => {
+    let parseNumber = parseInt(number);
+    return parseNumber <= 1000 ? (sum += parseNumber) : sum;
+  }, 0);
 };
 
 export { add };
