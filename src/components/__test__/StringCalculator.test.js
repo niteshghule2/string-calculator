@@ -17,4 +17,8 @@ describe("String Calculator component", () => {
     renderInputAndSubmit("2");
     expect(screen.getByTestId("result")).toHaveTextContent("2");
   });
+  it("return sum of two string numbers", () => {
+    renderInputAndSubmit("1,5");
+    expect(screen.getByTestId("result")).toHaveTextContent("6");
+  });
 });
