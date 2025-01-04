@@ -5,9 +5,13 @@ const add = (numbers) => {
     .replace(/\/\/.\n/, "")
     .replace(/\\n/g, delimeter)
     .replace(/\n/g, delimeter);
-  return numbers
-    .split(delimeter)
-    .reduce((sum, number) => (sum += parseInt(number)), 0);
+  let numberList = numbers.split(delimeter);
+  let negativeNumberList = numberList.filter((number) => parseInt(number) < 0);
+  if (negativeNumberList?.length)
+    throw new Error(
+      "negative numbers not allowed " + negativeNumberList.join(", ")
+    );
+  return numberList.reduce((sum, number) => (sum += parseInt(number)), 0);
 };
 
 export { add };

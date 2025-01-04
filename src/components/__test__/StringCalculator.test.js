@@ -35,4 +35,10 @@ describe("String Calculator component", () => {
       "negative numbers not allowed -1"
     );
   });
+  it("Throw an exception on multiple negative number", () => {
+    renderInputAndSubmit("-1,2,-2,-4");
+    expect(screen.getByTestId("error")).toHaveTextContent(
+      "negative numbers not allowed -1, -2, -4"
+    );
+  });
 });

@@ -14,8 +14,12 @@ const StringCalculator = () => {
   };
   const submitForm = (e) => {
     e.preventDefault();
-    const total = add(inputNumbers.trim());
-    setResult(total);
+    try {
+      const total = add(inputNumbers.trim());
+      setResult(total);
+    } catch (e) {
+      setError(e.message);
+    }
   };
   return (
     <>
