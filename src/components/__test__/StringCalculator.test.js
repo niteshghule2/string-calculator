@@ -53,4 +53,8 @@ describe("String Calculator component", () => {
     renderInputAndSubmit("//[*][%]\n1*2%3");
     expect(screen.getByTestId("result")).toHaveTextContent("6");
   });
+  it("Allow multiple delimiters with length longer", () => {
+    renderInputAndSubmit("//[&&&&][(((]\n2&&&&2(((3");
+    expect(screen.getByTestId("result")).toHaveTextContent("7");
+  });
 });
