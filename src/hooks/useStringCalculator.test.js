@@ -12,3 +12,6 @@ test("add two number string, return sum", () => {
 test("add 1\n2,3, return 6", () => {
   expect(add("1\n2,3")).toBe(6);
 });
+test("Support custom delimiter - return 3 for //;\n1;2 input", () => {
+  expect(add("//;\n1;2")).toBe(3);
+});

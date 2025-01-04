@@ -25,4 +25,8 @@ describe("String Calculator component", () => {
     renderInputAndSubmit("2,3\n4");
     expect(screen.getByTestId("result")).toHaveTextContent("9");
   });
+  it("support different delimeter - return 7 for //$\n2$5 input", () => {
+    renderInputAndSubmit("//$\n2$5");
+    expect(screen.getByTestId("result")).toHaveTextContent("7");
+  });
 });
