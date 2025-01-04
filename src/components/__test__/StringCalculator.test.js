@@ -45,4 +45,8 @@ describe("String Calculator component", () => {
     renderInputAndSubmit("1001,2");
     expect(screen.getByTestId("result")).toHaveTextContent("2");
   });
+  it("Delimiters can be any length", () => {
+    renderInputAndSubmit("//[***]\n1***2***3");
+    expect(screen.getByTestId("result")).toHaveTextContent("6");
+  });
 });

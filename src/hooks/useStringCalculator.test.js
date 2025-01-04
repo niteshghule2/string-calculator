@@ -25,3 +25,6 @@ test("Throw an error for multiple negative number", () => {
 test("Number bigger than 1000 should be ignored", () => {
   expect(add("100002,1")).toBe(1);
 });
+test("Delimiters can be any length", () => {
+  expect(add("//[***]\n1***2***3")).toBe(6);
+});
