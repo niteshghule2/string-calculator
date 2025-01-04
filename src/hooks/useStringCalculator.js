@@ -1,6 +1,18 @@
 const add = (numbers) => {
   if (!numbers) return 0;
-  let delimeter = numbers.startsWith("//") ? numbers.charAt(2) : ",";
+  let delimeter = ",";
+  if (numbers.startsWith("//")) {
+    let matchDelimiter =
+      numbers.match(/^\/\/(.*?)\n/) || numbers.match(/^\/\/(.*?)\\n/);
+    if (matchDelimiter) {
+      let delimiterPart = matchDelimiter[1];
+      if (delimiterPart.startsWith("[")) {
+        delimeter = delimiterPart.slice(1, -1);
+      } else {
+        delimeter = delimiterPart;
+      }
+    }
+  }
   numbers = numbers
     .replace(/\/\/.\n/, "")
     .replace(/\\n/g, delimeter)
@@ -13,7 +25,7 @@ const add = (numbers) => {
     );
   return numberList.reduce((sum, number) => {
     let parseNumber = parseInt(number);
-    return parseNumber <= 1000 ? (sum += parseNumber) : sum;
+    return parseNumber <= 1000 ? sum + parseNumber : sum;
   }, 0);
 };
 
