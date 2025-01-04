@@ -41,4 +41,8 @@ describe("String Calculator component", () => {
       "negative numbers not allowed -1, -2, -4"
     );
   });
+  it("Number bigger than 1000 should be ignored", () => {
+    renderInputAndSubmit("1001,2");
+    expect(screen.getByTestId("result")).toHaveTextContent("2");
+  });
 });
