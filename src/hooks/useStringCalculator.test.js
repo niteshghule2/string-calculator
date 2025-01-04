@@ -28,3 +28,6 @@ test("Number bigger than 1000 should be ignored", () => {
 test("Delimiters can be any length", () => {
   expect(add("//[***]\n1***2***3")).toBe(6);
 });
+test("Allow multiple delimiters", () => {
+  expect(add("//[*][%]\n1*2%3")).toBe(6);
+});
