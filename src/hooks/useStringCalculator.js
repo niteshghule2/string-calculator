@@ -2,8 +2,7 @@ const add = (numbers) => {
   if (!numbers) return 0;
   let delimiter = /,|\n/;
   if (numbers.startsWith("//")) {
-    let matchDelimiter =
-      numbers.match(/^\/\/(.*?)\n/) || numbers.match(/^\/\/(.*?)\\n/);
+    let matchDelimiter = numbers.match(/^\/\/(.*?)(?:\n|\\n)/);
     if (matchDelimiter) {
       let delimiterPart = matchDelimiter[1];
       if (delimiterPart.startsWith("[")) {
@@ -12,7 +11,9 @@ const add = (numbers) => {
           .map((d) => d.slice(1, -1).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
         delimiter = new RegExp(delimiterList.join("|"));
       } else {
-        delimiter = delimiterPart;
+        delimiter = new RegExp(
+          delimiterPart.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+        );
       }
     }
     numbers = numbers.replace(/\/\/.*?(?:\n|\\n)/, "");
