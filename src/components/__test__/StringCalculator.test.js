@@ -21,4 +21,8 @@ describe("String Calculator component", () => {
     renderInputAndSubmit("1,5");
     expect(screen.getByTestId("result")).toHaveTextContent("6");
   });
+  it("return 9 for 2,3\n4 input", () => {
+    renderInputAndSubmit("2,3\n4");
+    expect(screen.getByTestId("result")).toHaveTextContent("9");
+  });
 });

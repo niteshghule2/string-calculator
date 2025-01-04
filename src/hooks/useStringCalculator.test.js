@@ -9,3 +9,6 @@ test("add single string return itself number", () => {
 test("add two number string, return sum", () => {
   expect(add("1,5")).toBe(6);
 });
+test("add 1\n2,3, return 6", () => {
+  expect(add("1\n2,3")).toBe(6);
+});
