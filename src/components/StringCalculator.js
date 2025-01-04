@@ -14,7 +14,7 @@ const StringCalculator = () => {
   };
   const submitForm = (e) => {
     e.preventDefault();
-    const total = add(inputNumbers);
+    const total = add(inputNumbers.trim());
     setResult(total);
   };
   return (
@@ -28,8 +28,9 @@ const StringCalculator = () => {
             onSubmit={submitForm}
           >
             <div>
-              <label htmlFor="input-numbers">Enter numbers</label>
-              <input
+              <label htmlFor="input">Enter numbers</label>
+              <textarea
+                id="input"
                 data-testid="input-numbers"
                 className="mt-2 border rounded mb-4 px-6 py-2 w-full"
                 type="text"
