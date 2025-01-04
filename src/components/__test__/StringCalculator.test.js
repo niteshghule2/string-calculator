@@ -13,4 +13,8 @@ describe("String Calculator component", () => {
     renderInputAndSubmit("");
     expect(screen.getByTestId("result")).toHaveTextContent("0");
   });
+  it("return itself number for single number string", () => {
+    renderInputAndSubmit("2");
+    expect(screen.getByTestId("result")).toHaveTextContent("2");
+  });
 });
